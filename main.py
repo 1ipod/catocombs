@@ -11,13 +11,14 @@ def settings(params, prompt):
     return prompt
 
 hprompt = '''Create a file to be hosted at the path "(path)" on "(name)"
+(desc)
 
 Content-Type:'''
 
 @app.route('/')
 @app.route('/<path:path>')
 def host(path):
-    config = {"path" : "path", "name" : "the catocombs at the end of the web"}
+    config = {"desc":"", "path" : path, "name" : "the catocombs at the end of the web"}
     hprompt = settings(config, hprompt)
     output = llm(hprompt, max_tokens=1024, stop=['</html>'], echo=True)
     content = output.splitlines[0]
