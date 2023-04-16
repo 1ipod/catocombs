@@ -10,7 +10,7 @@ def settings(params, prompt):
          prompt = prompt.replace(pparam, params.get(param))
     return prompt
 
-hprompt = '''Create a file to be hosted at the path "(path)" on "(Site name)"
+hprompt = '''Create a file to be hosted at the path "(path)" on "(name)"
 
 Content-Type:'''
 
