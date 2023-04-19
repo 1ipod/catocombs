@@ -10,7 +10,7 @@ def settings(params, prompt):
          prompt = prompt.replace(pparam, params.get(param))
     return prompt
 
-hprompt = '''Create a file to be hosted at the path "(path)" on "(name)"
+prompt = '''Create a file to be hosted at the path "(path)" on "(name)"
 (desc)
 
 Content-Type:'''
@@ -19,8 +19,8 @@ Content-Type:'''
 @app.route('/<path:path>')
 def host(path):
     config = {"desc":"", "path" : path, "name" : "the catocombs at the end of the web"}
-    hprompt = settings(config, hprompt)
-    output = llm(hprompt, max_tokens=1024, stop=['</html>'], echo=True)
+    prompt = settings(config, prompt)
+    output = llm(prompt, max_tokens=1024, stop=['</html>'], echo=True)
     content = output.splitlines[0]
     doc = output.splitlines[1]
     return doc, 200, content
