@@ -6,8 +6,8 @@ llm = Llama(model_path="./models/7B/ggml-model.bin")
 
 def settings(params, prompt):
     for param in list(params.keys()):
-         pparam = '('+param+')'
-         prompt = prompt.replace(pparam, params.get(param))
+         perparam = '('+param+')'
+         prompt = prompt.replace(perparam, params.get(param))
     return prompt
 
 prompt = '''Create a file to be hosted at the path "(path)" on "(name)"
