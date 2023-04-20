@@ -13,6 +13,7 @@ prompt = '''Create a file to be hosted at the path "(path)" on "(name)"
 
 Content-Type:'''
 
+path = input("path:")
 
 config = {"desc":"", "path" : path, "name" : "the catocombs at the end of the web"}
 prompt = settings(config, prompt)
