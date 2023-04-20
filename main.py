@@ -2,7 +2,7 @@ from flask import Flask
 from llama_cpp import Llama
 
 app = Flask(__name__)
-llm = Llama(model_path="./models/7B/ggml-model.bin")
+llm = Llama(model_path="./model.bin")
 
 def settings(params, prompt):
     for param in list(params.keys()):
